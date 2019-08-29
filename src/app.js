@@ -20,12 +20,15 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
+app.use('/docs', express.static('./docs'));
+
 // Routes
 app.use(authRouter);
 
 // Catchalls
 app.use(notFound);
 app.use(errorHandler);
+
 
 module.exports = {
   server: app,
